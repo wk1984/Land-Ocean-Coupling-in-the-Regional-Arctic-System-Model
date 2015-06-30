@@ -6,4 +6,4 @@ simulations and data.tex
 results.tex
 Discussion.tex
 Conclusions.tex
-section_Acknowledgments_This_research_was__.tex
+Acknowledgments.tex
