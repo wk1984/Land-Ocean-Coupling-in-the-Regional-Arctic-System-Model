@@ -20,7 +20,7 @@ Additional functionality, including component models to represent dynamic vegeta
 
 The flow routing scheme developed within RASM has been adapted from the model typically used as a post-processor with the Variable Infiltration Capacity (VIC) hydrology model.
 The routing model is a source-to-sink model that solves a linearized version of the Saint-Venant equations.
-This model, originally introduced by Lohmann et al. (1996, 1998a, 1998b), has been used in many offline studies across spatial scales from 1/16$^{\circ}$ to 2$^{\circ}$.
+This model, originally introduced by \cite{LOHMANN_1996,LOHMANN_1998,LOHMANN_1998}, has been used in many offline studies across spatial scales from 1/16$^{\circ}$ to 2$^{\circ}$.
 Whereas previous hydrology models coupled to CPL7 have routed runoff within the land model, the routing scheme being developed in RASM will be coupled as a separate entity. 
 Furthermore, the development of the impulse response functions (IRFs) is done as a preprocessing step, which considerably reduces the computation time within RASM.
 
@@ -48,7 +48,7 @@ This process is repeated for each basin in the model domain.
 
 \textbf{Upscaling and Basin Aggregation}
 
-The development of the impulse response functions is done on a high resolution (1/16th degree) flow network (Wu et al., 2011, Wu et al., 2012).
+The development of the impulse response functions is done on a high resolution (1/16th degree) flow network \cite{Wu_2011}.
 Whereas the typical employment of this model immediately convolves the fluxes from every grid cell, the implementation here first upscales and aggregates the high resolution IRF grid to the RASM grid (figure ?).
 The upscaling process uses the first-order conservative remapping technique developed by Jones (1999).
 Because the remapping scheme is conservative, the unit response to runoff (unit hydrograph) from each RASM grid cell is maintained.
@@ -66,5 +66,6 @@ In nature, turbulent mixing and other diffusive processes combine to gradually s
 In the modeling environment however, these processes are difficult to represent at the resolution that ocean and sea ice models are run at.
 To simulate the dispersion of freshwater throughout each ocean grid cell within RASM, a diffusion scheme is applied to avoid unrealistic gradients that would occur when a river’s entire outflow is applied to one ocean grid cell.
 This process encourages computational stability within the ocean model while representing the distributed changes in salinity due to the land-ocean freshwater flux.
+  
   
   
