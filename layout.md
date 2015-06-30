@@ -3,7 +3,7 @@ Abstract.tex
 Introduction.tex
 Models.tex
 simulations and data.tex
-section_Results_subsection_Coupled_Uncoupled__.tex
+results.tex
 section_Discussion__.tex
 section_Conclusions__.tex
 section_Acknowledgments_This_research_was__.tex
