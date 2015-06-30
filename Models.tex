@@ -42,22 +42,27 @@ where
 
 \[ h(x, t) = \frac{x}{2t\sqrt{\pi tD}}exp\left(-\frac{(Ct-x)^2}{4Dt}\right) \]
 
-is Green’s impulse response function.  The Saint-Venant equations are solved for the flow response from every upstream grid cell to a common downstream location.  This process is repeated for each basin in the model domain.
+is Green’s impulse response function.
+The Saint-Venant equations are solved for the flow response from every upstream grid cell to a common downstream location.  
+This process is repeated for each basin in the model domain.
 
 \textbf{Upscaling and Basin Aggregation}
 
-The development of the impulse response functions is done on a high resolution (1/16th degree) flow network (Wu et al., 2011, Wu et al., 2012).  Whereas the typical employment of this model immediately convolves the fluxes from every grid cell, the implementation here first upscales and aggregates the high resolution IRF grid to the RASM grid (figure 2b). The upscaling process uses the first-order conservative remapping technique developed by Jones (1999). Because the remapping scheme is conservative, the unit response to runoff (unit hydrograph) from each RASM grid cell is maintained. The routing and regridding process is repeated for every streamflow location of interest in the model domain, such as basin outlets and stream gauging sites.  Finally, the regridded IRFs are aggregated to include all basins flowing into a single ocean grid cell (figure 3b).
+The development of the impulse response functions is done on a high resolution (1/16th degree) flow network (Wu et al., 2011, Wu et al., 2012).
+Whereas the typical employment of this model immediately convolves the fluxes from every grid cell, the implementation here first upscales and aggregates the high resolution IRF grid to the RASM grid (figure ?).
+The upscaling process uses the first-order conservative remapping technique developed by Jones (1999).
+Because the remapping scheme is conservative, the unit response to runoff (unit hydrograph) from each RASM grid cell is maintained.
+The routing and regridding process is repeated for every streamflow location of interest in the model domain, such as basin outlets and stream gauging sites.
+Finally, the regridded IRFs are aggregated to include all basins flowing into a single ocean grid cell (figure ?).
 
 \textbf{Convolution}
 
-With the development of the IRFs complete, the convolution simply aggregates the flow contribution from all upstream grid cells at every timestep lagged according the IRF.  Understanding that only some fraction of the flow from each grid cell reaches a downstream point at each timestep, the RASM convolution scheme adds additional runoff reaching the ocean for future timesteps as the model progresses.
+With the development of the IRFs complete, the convolution simply aggregates the flow contribution from all upstream grid cells at every timestep lagged according the IRF.
+Understanding that only some fraction of the flow from each grid cell reaches a downstream point at each timestep, the RASM convolution scheme adds additional runoff reaching the ocean for future timesteps as the model progresses.
 
 \textbf{Diffusion Along Coast}
 
-In nature, turbulent mixing and other diffusive processes combine to gradually spread freshwater along the coast and into the open ocean.  In the modeling environment however, these processes are difficult to represent at the resolution that ocean and sea ice models are run at.  To simulate the dispersion of freshwater throughout each ocean grid cell within RASM, a diffusion scheme is applied to avoid unrealistic gradients that would occur when a river’s entire outflow is applied to one ocean grid cell.  This process encourages computational stability within the ocean model while representing the distributed changes in salinity due to the land-ocean freshwater flux.  
-  
-  
-  
-  
-  
-  
+In nature, turbulent mixing and other diffusive processes combine to gradually spread freshwater along the coast and into the open ocean.
+In the modeling environment however, these processes are difficult to represent at the resolution that ocean and sea ice models are run at.
+To simulate the dispersion of freshwater throughout each ocean grid cell within RASM, a diffusion scheme is applied to avoid unrealistic gradients that would occur when a river’s entire outflow is applied to one ocean grid cell.
+This process encourages computational stability within the ocean model while representing the distributed changes in salinity due to the land-ocean freshwater flux.
