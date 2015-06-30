@@ -16,7 +16,7 @@ Additional functionality, including component models to represent dynamic vegeta
 
 \subsubsection{WRF}
 
-\subsection{RVIC}
+\subsubsection{RVIC}
 
 The flow routing scheme developed within RASM has been adapted from the model typically used as a post-processor with the Variable Infiltration Capacity (VIC) hydrology model. The routing model is a source-to-sink model that solves a linearized version of the Saint-Venant equations. This model, developed by Lohmann et al. (1996, 1998a, 1998b), has been used in many offline studies at a variety of spatial scales.  Whereas previous hydrology models coupled to CPL7 have routed runoff within the land model, the routing scheme being developed in RASM will be coupled as a separate entity. Furthermore, the development of the impulse response functions (IRFs) is done as a preprocessing step, which considerably reduces the computation time within RASM.
 
@@ -41,6 +41,7 @@ With the development of the IRFs complete, the convolution simply aggregates the
 \subsubsection{Diffusion Along Coast}
 
 In nature, turbulent mixing and other diffusive processes combine to gradually spread freshwater along the coast and into the open ocean.  In the modeling environment however, these processes are difficult to represent at the resolution that ocean and sea ice models are run at.  To simulate the dispersion of freshwater throughout each ocean grid cell within RASM, a diffusion scheme is applied to avoid unrealistic gradients that would occur when a river’s entire outflow is applied to one ocean grid cell.  This process encourages computational stability within the ocean model while representing the distributed changes in salinity due to the land-ocean freshwater flux.  
+  
   
   
   
