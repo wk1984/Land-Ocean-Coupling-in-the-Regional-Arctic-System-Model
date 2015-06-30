@@ -43,7 +43,7 @@ where
 \[ h(x, t) = \frac{x}{2t\sqrt{\pi tD}}exp\left(-\frac{(Ct-x)^2}{4Dt}\right) \]
 
 is Green’s impulse response function.
-The Saint-Venant equations are solved for the flow response from every upstream grid cell to a common downstream location.  
+The Saint-Venant equations are solved for the flow response from every upstream grid cell to a common downstream location.
 This process is repeated for each basin in the model domain.
 
 \textbf{Upscaling and Basin Aggregation}
@@ -66,3 +66,4 @@ In nature, turbulent mixing and other diffusive processes combine to gradually s
 In the modeling environment however, these processes are difficult to represent at the resolution that ocean and sea ice models are run at.
 To simulate the dispersion of freshwater throughout each ocean grid cell within RASM, a diffusion scheme is applied to avoid unrealistic gradients that would occur when a river’s entire outflow is applied to one ocean grid cell.
 This process encourages computational stability within the ocean model while representing the distributed changes in salinity due to the land-ocean freshwater flux.
+  
