@@ -1,4 +1,3 @@
-textbf_Key_Points_begin_itemize__.tex
 00_title_page.tex
 00b_abstract.tex
 Introduction.tex
