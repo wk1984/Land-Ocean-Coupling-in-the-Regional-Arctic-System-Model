@@ -50,7 +50,7 @@ This process is repeated for each basin in the model domain.
 
 The development of the impulse response functions is done on a high resolution (1/16th degree) flow network \cite{Wu_2011}.
 Whereas the typical employment of this model immediately convolves the fluxes from every grid cell, the implementation here first upscales and aggregates the high resolution IRF grid to the RASM grid (figure ?).
-The upscaling process uses the first-order conservative remapping technique developed by Jones (1999).
+The upscaling process uses the first-order conservative remapping technique developed by \cite{Jones_1999}.
 Because the remapping scheme is conservative, the unit response to runoff (unit hydrograph) from each RASM grid cell is maintained.
 The routing and regridding process is repeated for every streamflow location of interest in the model domain, such as basin outlets and stream gauging sites.
 Finally, the regridded IRFs are aggregated to include all basins flowing into a single ocean grid cell (figure ?).
@@ -66,6 +66,3 @@ In nature, turbulent mixing and other diffusive processes combine to gradually s
 In the modeling environment however, these processes are difficult to represent at the resolution that ocean and sea ice models are run at.
 To simulate the dispersion of freshwater throughout each ocean grid cell within RASM, a diffusion scheme is applied to avoid unrealistic gradients that would occur when a river’s entire outflow is applied to one ocean grid cell.
 This process encourages computational stability within the ocean model while representing the distributed changes in salinity due to the land-ocean freshwater flux.
-  
-  
-  
