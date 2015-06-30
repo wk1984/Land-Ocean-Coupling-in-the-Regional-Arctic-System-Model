@@ -4,6 +4,6 @@ Introduction.tex
 Models.tex
 simulations and data.tex
 results.tex
-section_Discussion__.tex
+Discussion.tex
 section_Conclusions__.tex
 section_Acknowledgments_This_research_was__.tex
