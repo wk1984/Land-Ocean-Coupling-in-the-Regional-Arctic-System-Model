@@ -20,7 +20,7 @@ Additional functionality, including component models to represent dynamic vegeta
 
 The flow routing scheme developed within RASM has been adapted from the model typically used as a post-processor with the Variable Infiltration Capacity (VIC) hydrology model. The routing model is a source-to-sink model that solves a linearized version of the Saint-Venant equations. This model, developed by Lohmann et al. (1996, 1998a, 1998b), has been used in many offline studies at a variety of spatial scales.  Whereas previous hydrology models coupled to CPL7 have routed runoff within the land model, the routing scheme being developed in RASM will be coupled as a separate entity. Furthermore, the development of the impulse response functions (IRFs) is done as a preprocessing step, which considerably reduces the computation time within RASM.
 
-\subsubsection{Impulse Response Function Development}
+\textbf{Impulse Response Function Development}
 
 The routing model represents the source-to-sink response of flow from any model grid cell to a downstream point as a linear and time invariant response to an impulse of runoff.  Therefore, the development of the impulse response function between any source and sink points is only a function of the horizontal travel time of water within the source grid cell and to the downstream point with the addition of a flow diffusion parameter.  The Saint-Venant equation
 ,							(1)
@@ -30,17 +30,18 @@ where
 						(3)
 is Green’s impulse response function.  The Saint-Venant equations are solved for the flow response from every upstream grid cell to a common downstream location.  This process is repeated for each basin in the model domain.
 
-\subsubsection{Upscaling and Basin Aggregation}
+\textbf{Upscaling and Basin Aggregation}
 
 The development of the impulse response functions is done on a high resolution (1/16th degree) flow network (Wu et al., 2011, Wu et al., 2012).  Whereas the typical employment of this model immediately convolves the fluxes from every grid cell, the implementation here first upscales and aggregates the high resolution IRF grid to the RASM grid (figure 2b). The upscaling process uses the first-order conservative remapping technique developed by Jones (1999). Because the remapping scheme is conservative, the unit response to runoff (unit hydrograph) from each RASM grid cell is maintained. The routing and regridding process is repeated for every streamflow location of interest in the model domain, such as basin outlets and stream gauging sites.  Finally, the regridded IRFs are aggregated to include all basins flowing into a single ocean grid cell (figure 3b).
 
-\subsubsection{Convolution}
+\textbf{Convolution}
 
 With the development of the IRFs complete, the convolution simply aggregates the flow contribution from all upstream grid cells at every timestep lagged according the IRF.  Understanding that only some fraction of the flow from each grid cell reaches a downstream point at each timestep, the RASM convolution scheme adds additional runoff reaching the ocean for future timesteps as the model progresses.
 
-\subsubsection{Diffusion Along Coast}
+\textbf{Diffusion Along Coast}
 
 In nature, turbulent mixing and other diffusive processes combine to gradually spread freshwater along the coast and into the open ocean.  In the modeling environment however, these processes are difficult to represent at the resolution that ocean and sea ice models are run at.  To simulate the dispersion of freshwater throughout each ocean grid cell within RASM, a diffusion scheme is applied to avoid unrealistic gradients that would occur when a river’s entire outflow is applied to one ocean grid cell.  This process encourages computational stability within the ocean model while representing the distributed changes in salinity due to the land-ocean freshwater flux.  
+  
   
   
   
